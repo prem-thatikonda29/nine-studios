@@ -1,36 +1,105 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Nine Studios
+
+Premium video editing and content strategy portfolio website.
+
+## Tech Stack
+
+- **Next.js 16.1.1** - React framework with App Router and Turbopack
+- **React 19.2.3** - UI library
+- **TypeScript 5** - Type safety
+- **Tailwind CSS 4** - Utility-first CSS with custom design tokens
+- **Framer Motion** - Animation library for scroll-triggered effects
+- **Lenis** - Smooth scrolling
+- **shadcn/ui** - Component library (Button, Card, Accordion, Dialog, Carousel)
+
+## Project Overview
+
+A conversion-focused single-page portfolio website showcasing video editing work and services. The site features:
+
+- **Hero Section** - Introduction with primary CTA
+- **Work Section** - YouTube video portfolio (short-form and long-form content)
+- **Services Section** - Offered services breakdown
+- **Testimonials Section** - Client feedback carousel
+- **Pricing Section** - Three-tier pricing structure
+- **FAQ Section** - Common questions accordion
+- **Footer** - Final CTA and branding
 
 ## Getting Started
 
-First, run the development server:
+### Installation
+
+```bash
+npm install
+```
+
+### Development Server
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000) to view the site.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### Build
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```bash
+npm run build
+```
 
-## Learn More
+### Production Server
 
-To learn more about Next.js, take a look at the following resources:
+```bash
+npm start
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Content Management
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+All website content (copy, links, video IDs) is centralized in `/lib/constants.ts`. Update this file to modify:
+- Site name and tagline
+- Hero headline and subheading
+- Video portfolio IDs
+- Service offerings
+- Testimonials
+- Pricing tiers
+- FAQ questions and answers
+- CTA links
 
-## Deploy on Vercel
+## Design Tokens
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Design system variables are defined in `/app/globals.css` using Tailwind's `@theme` directive. Update these values to modify:
+- Spacing (section padding, grid gaps, heading margins)
+- Typography (hero, subheading, and heading font sizes)
+- Container widths (sm/md/lg breakpoints)
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Custom utilities generated:
+- `px-section`, `py-section-y` - Responsive section padding
+- `text-hero`, `text-hero-sub`, `text-heading` - Typography scales
+- `max-w-container-sm/md/lg` - Container widths
+- `gap-grid`, `mb-heading` - Spacing utilities
+
+## Project Structure
+
+```
+/app
+  ├── globals.css          # Design tokens and custom utilities
+  ├── layout.tsx           # Root layout with Lenis smooth scroll
+  └── page.tsx             # Main page with all sections
+
+/components
+  ├── sections/            # Hero, Work, Services, Testimonials, Pricing, FAQ, Footer
+  ├── YouTubeEmbed.tsx     # Custom video player component
+  └── LenisProvider.tsx    # Smooth scroll wrapper
+
+/lib
+  └── constants.ts         # All website content data
+```
+
+## Deployment
+
+Deploy to Vercel, Netlify, or any platform supporting Next.js:
+
+```bash
+npm run build
+```
+
+The build output will be optimized for production with static generation where possible.
