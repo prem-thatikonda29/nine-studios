@@ -25,7 +25,7 @@ export default function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            className="text-hero-responsive font-bold mb-6 uppercase tracking-tight"
+            className="text-hero-responsive font-bold mb-6 uppercase"
           >
             {HERO_CONTENT.headline}
           </motion.h1>

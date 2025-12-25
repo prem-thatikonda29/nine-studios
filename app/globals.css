@@ -6,8 +6,9 @@
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-display: var(--font-display);
+  --font-body: var(--font-body);
+  --font-mono: ui-monospace, monospace;
   --color-sidebar-ring: var(--sidebar-ring);
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
@@ -216,18 +217,27 @@
 
   /* Responsive Typography - Mobile First */
   .text-hero-responsive {
+    font-family: var(--font-display);
     font-size: var(--hero-heading-mobile);
+    font-weight: 700;
     line-height: 1.1;
+    letter-spacing: -0.02em;
   }
 
   .text-hero-sub-responsive {
+    font-family: var(--font-body);
     font-size: var(--hero-subheading-mobile);
+    font-weight: 400;
     line-height: 1.4;
+    letter-spacing: -0.01em;
   }
 
   .text-heading-responsive {
+    font-family: var(--font-display);
     font-size: var(--section-heading-mobile);
+    font-weight: 700;
     line-height: 1.2;
+    letter-spacing: -0.015em;
   }
 
   /* Tablet breakpoint (426px+) */
@@ -259,6 +269,15 @@
       font-size: var(--section-heading-desktop);
     }
   }
+
+  /* Font Family Utilities */
+  .font-display {
+    font-family: var(--font-display);
+  }
+
+  .font-body {
+    font-family: var(--font-body);
+  }
 }
 
 @layer base {
@@ -271,6 +290,7 @@
   }
   body {
     @apply bg-background text-foreground;
+    font-family: var(--font-body);
     overflow-x: hidden;
     width: 100%;
   }

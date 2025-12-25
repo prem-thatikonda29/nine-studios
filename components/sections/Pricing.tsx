@@ -35,7 +35,7 @@ export default function Pricing() {
                   <CardTitle className="text-center">{tier.name}</CardTitle>
                 </CardHeader>
                 <CardContent className="text-center">
-                  <p className="text-4xl font-bold mb-2">{tier.price}</p>
+                  <p className="text-4xl font-bold font-display mb-2">{tier.price}</p>
                   <p className="text-muted-foreground mb-4">{tier.videos}</p>
                 </CardContent>
               </Card>
