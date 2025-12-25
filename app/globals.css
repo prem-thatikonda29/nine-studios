@@ -55,14 +55,6 @@
   --spacing-heading: 1rem; /* 16px */
 
   /* ========================================
-     CUSTOM FONT SIZES - Nine Studios
-     Use: text-hero, text-hero-sub, text-heading
-     ======================================== */
-  --font-size-hero: 2.25rem; /* Mobile: 36px - text-4xl */
-  --font-size-hero-sub: 1.25rem; /* Mobile: 20px - text-xl */
-  --font-size-heading: 2.25rem; /* Mobile: 36px - text-4xl */
-
-  /* ========================================
      CUSTOM MAX WIDTHS - Nine Studios
      Use: max-w-container-sm/md/lg
      ======================================== */
@@ -118,15 +110,17 @@
   --section-padding-y: 5rem; /* 80px */
 
   /* Typography - Hero */
-  --hero-heading-mobile: 2.25rem; /* 36px - text-4xl */
+  --hero-heading-mobile: 2rem; /* 32px - text-2xl */
   --hero-heading-tablet: 3rem; /* 48px - text-5xl */
   --hero-heading-desktop: 3.75rem; /* 60px - text-6xl */
-  --hero-subheading-mobile: 1.25rem; /* 20px - text-xl */
+  --hero-subheading-mobile: 1.125rem; /* 18px - text-lg */
   --hero-subheading-tablet: 1.5rem; /* 24px - text-2xl */
+  --hero-subheading-desktop: 1.5rem; /* 24px - text-2xl */
 
   /* Typography - Section Headings */
-  --section-heading-mobile: 2.25rem; /* 36px - text-4xl */
+  --section-heading-mobile: 1.75rem; /* 28px - text-2xl */
   --section-heading-tablet: 3rem; /* 48px - text-5xl */
+  --section-heading-desktop: 3rem; /* 48px - text-5xl */
 
   /* Spacing */
   --section-heading-margin: 1rem; /* 16px - mb-4 */
@@ -180,15 +174,6 @@
 @media (width >= 768px) {
   @theme inline {
     --spacing-section: 2rem; /* Tablet: 32px */
-    --font-size-hero: 3rem; /* Tablet: 48px - text-5xl */
-    --font-size-hero-sub: 1.5rem; /* Tablet: 24px - text-2xl */
-    --font-size-heading: 3rem; /* Tablet: 48px - text-5xl */
-  }
-}
-
-@media (width >= 1024px) {
-  @theme inline {
-    --font-size-hero: 3.75rem; /* Desktop: 60px - text-6xl */
   }
 }
 
@@ -216,22 +201,6 @@
     margin-bottom: var(--spacing-heading);
   }
 
-  /* Typography Utilities */
-  .text-hero {
-    font-size: var(--font-size-hero);
-    line-height: 1.1;
-  }
-
-  .text-hero-sub {
-    font-size: var(--font-size-hero-sub);
-    line-height: 1.4;
-  }
-
-  .text-heading {
-    font-size: var(--font-size-heading);
-    line-height: 1.2;
-  }
-
   /* Container Utilities */
   .max-w-container-sm {
     max-width: var(--max-width-container-sm);
@@ -243,6 +212,52 @@
 
   .max-w-container-lg {
     max-width: var(--max-width-container-lg);
+  }
+
+  /* Responsive Typography - Mobile First */
+  .text-hero-responsive {
+    font-size: var(--hero-heading-mobile);
+    line-height: 1.1;
+  }
+
+  .text-hero-sub-responsive {
+    font-size: var(--hero-subheading-mobile);
+    line-height: 1.4;
+  }
+
+  .text-heading-responsive {
+    font-size: var(--section-heading-mobile);
+    line-height: 1.2;
+  }
+
+  /* Tablet breakpoint (426px+) */
+  @media (min-width: 426px) {
+    .text-hero-responsive {
+      font-size: var(--hero-heading-tablet);
+    }
+
+    .text-hero-sub-responsive {
+      font-size: var(--hero-subheading-tablet);
+    }
+
+    .text-heading-responsive {
+      font-size: var(--section-heading-tablet);
+    }
+  }
+
+  /* Laptop breakpoint (769px+) */
+  @media (min-width: 769px) {
+    .text-hero-responsive {
+      font-size: var(--hero-heading-desktop);
+    }
+
+    .text-hero-sub-responsive {
+      font-size: var(--hero-subheading-desktop);
+    }
+
+    .text-heading-responsive {
+      font-size: var(--section-heading-desktop);
+    }
   }
 }
 
@@ -262,4 +277,14 @@
   .lenis.lenis-smooth {
     width: 100%;
   }
+}
+
+.no-visible-scrollbar {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  -webkit-overflow-scrolling: touch;
+}
+
+.no-visible-scrollbar::-webkit-scrollbar {
+  display: none;
 }

@@ -7,7 +7,7 @@ import { PRICING_CONTENT } from "@/lib/constants";
 
 export default function Pricing() {
   return (
-    <section id="pricing" className="py-section-y px-section bg-muted/50">
+    <section id="pricing" className="py-section-y px-section">
       <div className="max-w-container-lg mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -16,7 +16,7 @@ export default function Pricing() {
           transition={{ duration: 0.6 }}
           className="text-center mb-12"
         >
-          <h2 className="text-heading font-bold mb-heading">
+          <h2 className="text-heading-responsive font-bold mb-heading">
             {PRICING_CONTENT.sectionTitle}
           </h2>
         </motion.div>

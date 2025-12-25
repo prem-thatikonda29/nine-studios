@@ -6,7 +6,7 @@ import { SERVICES_CONTENT } from "@/lib/constants";
 
 export default function Services() {
   return (
-    <section id="services" className="py-section-y px-section bg-muted/50">
+    <section id="services" className="py-section-y px-section">
       <div className="max-w-container-lg mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -15,7 +15,7 @@ export default function Services() {
           transition={{ duration: 0.6 }}
           className="text-center mb-12"
         >
-          <h2 className="text-heading font-bold mb-heading">
+          <h2 className="text-heading-responsive font-bold mb-heading">
             {SERVICES_CONTENT.sectionTitle}
           </h2>
         </motion.div>
