@@ -67,7 +67,7 @@ export default function Pricing() {
               href={PRICING_CONTENT.cta.link}
               target="_blank"
               rel="noopener noreferrer"
-              className="text-foreground underline hover:text-foreground/80 transition-colors cursor-pointer"
+              className="text-foreground underline underline-offset-2 hover:text-foreground/80 transition-colors cursor-pointer"
             >
               Let's talk.
             </a>
