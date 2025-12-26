@@ -32,21 +32,23 @@ export default function Pricing() {
               className="w-full sm:w-64"
             >
               <Tilt
-                tiltMaxAngleX={10}
-                tiltMaxAngleY={10}
+                tiltMaxAngleX={5}
+                tiltMaxAngleY={5}
                 glareEnable={true}
                 glareMaxOpacity={0.2}
-                glareColor="#ffffff"
+                glareColor="#3b82f6"
                 glarePosition="all"
                 glareBorderRadius="8px"
                 scale={1.02}
               >
-                <Card className="h-full hover:shadow-lg transition-shadow">
+                <Card className="h-full hover:shadow-lg hover:border-white/15 transition-all duration-300">
                   <CardHeader>
                     <CardTitle className="text-center">{tier.name}</CardTitle>
                   </CardHeader>
                   <CardContent className="text-center">
-                    <p className="text-4xl font-bold font-display mb-2">{tier.price}</p>
+                    <p className="text-4xl font-bold font-display mb-2">
+                      {tier.price}
+                    </p>
                     <p className="text-muted-foreground mb-4">{tier.videos}</p>
                   </CardContent>
                 </Card>
@@ -69,7 +71,7 @@ export default function Pricing() {
               rel="noopener noreferrer"
               className="text-foreground underline underline-offset-2 hover:text-foreground/80 transition-colors cursor-pointer"
             >
-              Let's talk.
+              Let&apos;s talk.
             </a>
           </p>
         </motion.div>

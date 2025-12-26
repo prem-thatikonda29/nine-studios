@@ -63,7 +63,7 @@ export default function Testimonials() {
                   transition={{ duration: 0.6 }}
                   className="p-4"
                 >
-                  <Card>
+                  <Card className="testimonial-card-glow hover:shadow-2xl transition-shadow duration-300">
                     <CardContent className="flex flex-col items-center justify-center p-16 md:p-20 text-center min-h-[320px] md:min-h-[360px]">
                       <p className="text-2xl md:text-3xl font-medium mb-6">
                         &quot;{testimonial.quote}&quot;

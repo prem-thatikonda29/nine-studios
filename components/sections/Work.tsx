@@ -47,6 +47,7 @@ export default function Work() {
           <Button
             size="lg"
             onClick={() => window.open(WORK_CONTENT.cta.link, "_blank")}
+            className="uppercase tracking-wider text-xs sm:text-sm md:text-md px-6 sm:px-7 md:px-8 py-4 sm:py-5 md:py-6 gap-2 md:gap-3"
           >
             {WORK_CONTENT.cta.text}
           </Button>
