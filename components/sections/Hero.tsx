@@ -4,8 +4,8 @@ import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
 import { ArrowUpRight } from "lucide-react";
 import { HERO_CONTENT, SITE_CONFIG } from "@/lib/constants";
-import { useEffect, useRef, useState, useCallback } from "react";
-import { MeshGradient } from "@paper-design/shaders-react";
+import { useRef } from "react";
+// import { MeshGradient } from "@paper-design/shaders-react"; // Disabled for now
 
 // Helper function to open Discord profile
 const openDiscordProfile = () => {
@@ -16,90 +16,14 @@ const openDiscordProfile = () => {
 // Main Hero Component
 export default function Hero() {
   const heroRef = useRef<HTMLElement>(null);
-  const [backgroundOpacity, setBackgroundOpacity] = useState(1);
-  const [showShader, setShowShader] = useState(true);
-  const [isScrolling, setIsScrolling] = useState(false);
-
-  // MeshGradient interactive state
-  const [swirl, setSwirl] = useState(0.9);
-  const [distortion, setDistortion] = useState(1.5);
-
-  // Refs for throttling and scroll timeout
-  const throttleRef = useRef(false);
-  const scrollTimeoutRef = useRef<NodeJS.Timeout | null>(null);
-
-  // Throttled mouse move handler (60fps max)
-  const handleMouseMove = useCallback((e: React.MouseEvent) => {
-    if (throttleRef.current || !showShader) return;
-
-    throttleRef.current = true;
-    requestAnimationFrame(() => {
-      const { innerWidth, innerHeight } = window;
-      const x = e.clientX / innerWidth;
-      const y = e.clientY / innerHeight;
-
-      setSwirl(0.5 + x * 1.5);
-      setDistortion(1 + y * 2);
-      throttleRef.current = false;
-    });
-  }, [showShader]);
-
-  // Scroll-based fade effect with RAF + scroll detection for shader pause
-  useEffect(() => {
-    let ticking = false;
-
-    const handleScroll = () => {
-      // Pause shader while scrolling
-      setIsScrolling(true);
-      if (scrollTimeoutRef.current) {
-        clearTimeout(scrollTimeoutRef.current);
-      }
-      scrollTimeoutRef.current = setTimeout(() => {
-        setIsScrolling(false);
-      }, 150);
-
-      if (ticking) return;
-
-      ticking = true;
-      requestAnimationFrame(() => {
-        if (!heroRef.current) {
-          ticking = false;
-          return;
-        }
-
-        const heroHeight = heroRef.current.offsetHeight;
-        const scrolled = window.scrollY;
-        const fadeThreshold = heroHeight * 0.4;
-
-        if (scrolled >= fadeThreshold) {
-          setBackgroundOpacity(0);
-          setShowShader(false);
-        } else {
-          setShowShader(true);
-          const opacity = 1 - scrolled / fadeThreshold;
-          setBackgroundOpacity(opacity);
-        }
-        ticking = false;
-      });
-    };
-
-    window.addEventListener("scroll", handleScroll, { passive: true });
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-      if (scrollTimeoutRef.current) {
-        clearTimeout(scrollTimeoutRef.current);
-      }
-    };
-  }, []);
 
   return (
     <section
       ref={heroRef}
       id="hero"
       className="relative min-h-screen overflow-hidden"
-      onMouseMove={handleMouseMove}
     >
-      {/* MeshGradient Background - Always mounted, frozen when not visible */}
+      {/* MeshGradient Background - DISABLED
       <div
         className="absolute inset-0"
         style={{
@@ -124,16 +48,7 @@ export default function Hero() {
           }}
         />
       </div>
-
-      {/* Dark Gradient Overlay */}
-      <div
-        className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/40 to-black/70"
-        style={{
-          opacity: backgroundOpacity,
-          zIndex: 2,
-          visibility: showShader ? 'visible' : 'hidden'
-        }}
-      />
+      */}
 
       {/* Content Layer */}
       <div className="relative px-section py-24 md:py-32" style={{ zIndex: 3 }}>
