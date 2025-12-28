@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
 import { ArrowUpRight } from "lucide-react";
 import { HERO_CONTENT, SITE_CONFIG } from "@/lib/constants";
-import { useRef } from "react";
+import { useRef, useState, useEffect } from "react";
 // import { MeshGradient } from "@paper-design/shaders-react"; // Disabled for now
 
 // Helper function to open Discord profile
@@ -16,6 +16,34 @@ const openDiscordProfile = () => {
 // Main Hero Component
 export default function Hero() {
   const heroRef = useRef<HTMLElement>(null);
+  const [bgOpacity, setBgOpacity] = useState(1);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (!heroRef.current) return;
+
+      const heroHeight = heroRef.current.offsetHeight;
+      const scrollY = window.scrollY;
+      const scrollProgress = scrollY / heroHeight;
+
+      // Start fading at 40%, fully gone by 80%
+      if (scrollProgress < 0.2) {
+        setBgOpacity(1);
+      } else if(scrollProgress < 0.4){
+        setBgOpacity(0.5);
+      }
+      else if (scrollProgress > 0.6) {
+        setBgOpacity(0);
+      } else {
+        // Fade from 1 to 0 between 20% and 60%
+        const fadeProgress = (scrollProgress - 0.2) / 0.4;
+        setBgOpacity(1 - fadeProgress);
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   return (
     <section
@@ -23,6 +51,16 @@ export default function Hero() {
       id="hero"
       className="relative min-h-screen overflow-hidden"
     >
+      {/* Background Image */}
+      <div
+        className="absolute inset-0 bg-cover bg-center bg-no-repeat transition-opacity duration-300"
+        style={{
+          backgroundImage: 'url(/assets/bg-noise.jpeg)',
+          zIndex: 1,
+          opacity: bgOpacity,
+        }}
+      />
+
       {/* MeshGradient Background - DISABLED
       <div
         className="absolute inset-0"
