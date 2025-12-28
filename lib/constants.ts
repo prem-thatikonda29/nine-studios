@@ -61,22 +61,22 @@ export const SERVICES_CONTENT = {
   sectionTitle: "Services",
   services: [
     {
-      visual: "/assets/service-1.png",
+      icon: "/assets/service-1.png",
       title: "Long-Form Video",
       description: "Polished cinematic storytelling",
     },
     {
-      visual: "/assets/service-2.png",
+      icon: "/assets/service-2.png",
       title: "Short-Form Video",
       description: "Scroll-stopping social edits",
     },
     {
-      visual: "/assets/service-3.png",
+      icon: "/assets/service-3.png",
       title: "Thumbnail Design",
       description: "High CTR visual design",
     },
     {
-      visual: "/assets/service-4.png",
+      icon: "/assets/service-4.png",
       title: "SEO Optimization",
       description: "Discoverability and growth",
     },

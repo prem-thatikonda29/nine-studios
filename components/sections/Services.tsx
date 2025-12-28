@@ -1,7 +1,6 @@
 "use client";
 
 import Image from "next/image";
-
 import { Card, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import { motion } from "framer-motion";
 import { SERVICES_CONTENT } from "@/lib/constants";
@@ -44,12 +43,12 @@ export default function Services() {
               >
                 <Card className="h-full hover:shadow-lg hover:border-white/15 transition-all duration-300">
                   <CardHeader className="p-6 flex flex-col items-center text-center">
-                    <div className="w-36 h-36 sm:w-40 sm:h-40 md:w-44 md:h-44 mb-5">
+                    <div className="w-16 h-16 mb-5">
                       <Image
-                        src={service.visual}
+                        src={service.icon}
                         alt={service.title}
-                        width={180}
-                        height={180}
+                        width={64}
+                        height={64}
                         className="w-full h-full object-contain"
                       />
                     </div>
