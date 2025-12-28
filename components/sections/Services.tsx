@@ -1,8 +1,11 @@
 "use client";
 
+import Image from "next/image";
+
 import { Card, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import { motion } from "framer-motion";
 import { SERVICES_CONTENT } from "@/lib/constants";
+import Tilt from "react-parallax-tilt";
 
 export default function Services() {
   return (
@@ -29,13 +32,32 @@ export default function Services() {
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: index * 0.1 }}
             >
-              <Card className="h-full hover:shadow-lg transition-shadow">
-                <CardHeader>
-                  <service.icon className="w-12 h-12 mb-4" />
-                  <CardTitle>{service.title}</CardTitle>
-                  <CardDescription>{service.description}</CardDescription>
-                </CardHeader>
-              </Card>
+              <Tilt
+                tiltMaxAngleX={5}
+                tiltMaxAngleY={5}
+                glareEnable={true}
+                glareMaxOpacity={0.2}
+                glareColor="#3b82f6"
+                glarePosition="all"
+                glareBorderRadius="8px"
+                scale={1.02}
+              >
+                <Card className="h-full hover:shadow-lg hover:border-white/15 transition-all duration-300">
+                  <CardHeader className="p-6 flex flex-col items-center text-center">
+                    <div className="w-36 h-36 sm:w-40 sm:h-40 md:w-44 md:h-44 mb-5">
+                      <Image
+                        src={service.visual}
+                        alt={service.title}
+                        width={180}
+                        height={180}
+                        className="w-full h-full object-contain"
+                      />
+                    </div>
+                    <CardTitle>{service.title}</CardTitle>
+                    <CardDescription>{service.description}</CardDescription>
+                  </CardHeader>
+                </Card>
+              </Tilt>
             </motion.div>
           ))}
         </div>

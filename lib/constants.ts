@@ -1,4 +1,4 @@
-import { Film, Smartphone, ImageIcon, TrendingUp } from "lucide-react";
+
 
 // ========================================
 // GLOBAL SETTINGS
@@ -6,7 +6,12 @@ import { Film, Smartphone, ImageIcon, TrendingUp } from "lucide-react";
 export const SITE_CONFIG = {
   name: "Nine Studios",
   tagline: "Premium video editing and content strategy",
-  discordDmLink: "YOUR_DISCORD_DM_LINK", // Replace with actual Discord DM link
+  discordUsername: "prem2903__62731",
+  discordUserId: "1406559001008930816",
+  // Web link (fallback) - opens in browser
+  discordWebLink: "https://discord.com/users/1406559001008930816",
+  // App protocol - opens directly in Discord app to profile
+  discordDmLink: "https://discord.com/users/1406559001008930816",
 };
 
 // ========================================
@@ -36,11 +41,6 @@ export const WORK_CONTENT = {
     long: "Long Videos",
   },
   videos: {
-    shortForm: [
-      { id: "dQw4w9WgXcQ", title: "Short Video 1" },
-      { id: "dQw4w9WgXcQ", title: "Short Video 2" },
-      { id: "dQw4w9WgXcQ", title: "Short Video 3" },
-    ],
     longForm: [
       { id: "4Kbx3SnJM_M", title: "Long Video 1" },
       { id: "_a3aaL-NUtk", title: "Long Video 2" },
@@ -61,22 +61,22 @@ export const SERVICES_CONTENT = {
   sectionTitle: "Services",
   services: [
     {
-      icon: Film,
+      visual: "/assets/service-1.png",
       title: "Long-Form Video",
       description: "Polished cinematic storytelling",
     },
     {
-      icon: Smartphone,
+      visual: "/assets/service-2.png",
       title: "Short-Form Video",
       description: "Scroll-stopping social edits",
     },
     {
-      icon: ImageIcon,
+      visual: "/assets/service-3.png",
       title: "Thumbnail Design",
       description: "High CTR visual design",
     },
     {
-      icon: TrendingUp,
+      visual: "/assets/service-4.png",
       title: "SEO Optimization",
       description: "Discoverability and growth",
     },
