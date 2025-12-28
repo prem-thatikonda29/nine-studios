@@ -1,12 +1,12 @@
 import type { Metadata } from "next";
-import { Space_Grotesk, Inter } from "next/font/google";
+import { Inter } from "next/font/google";
+import localFont from "next/font/local";
 import "./globals.css";
 import LenisProvider from "@/components/LenisProvider";
 
-const displayFont = Space_Grotesk({
+const displayFont = localFont({
+  src: "../public/fonts/coolvetica/Coolvetica Rg.otf",
   variable: "--font-display",
-  subsets: ["latin"],
-  weight: ["600", "700"],
   display: "swap",
 });
 

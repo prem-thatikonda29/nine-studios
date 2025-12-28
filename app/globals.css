@@ -115,8 +115,8 @@
   --hero-heading-tablet: 3rem; /* 48px - text-5xl */
   --hero-heading-desktop: 3.75rem; /* 60px - text-6xl */
   --hero-subheading-mobile: 1.125rem; /* 18px - text-lg */
-  --hero-subheading-tablet: 1.5rem; /* 24px - text-2xl */
-  --hero-subheading-desktop: 1.5rem; /* 24px - text-2xl */
+  --hero-subheading-tablet: 1rem; /* 16px */
+  --hero-subheading-desktop: 1.25rem; /* 20px */
 
   /* Typography - Section Headings */
   --section-heading-mobile: 1.75rem; /* 28px - text-2xl */
@@ -135,11 +135,11 @@
 }
 
 .dark {
-  --background: #0A0908;
+  --background: oklab(14.062% 0.00105 0.00277);
   --foreground: oklch(0.985 0 0);
   --card: oklch(0.205 0 0);
   --card-foreground: oklch(0.985 0 0);
-  --popover: #0d0d0d;
+  --popover: oklab(15.907% 0 -0.00002);
   --popover-foreground: oklch(0.985 0 0);
   --primary: oklch(0.922 0 0);
   --primary-foreground: oklch(0.205 0 0);
@@ -221,7 +221,7 @@
     font-size: var(--hero-heading-mobile);
     font-weight: 700;
     line-height: 1.1;
-    letter-spacing: -0.02em;
+    letter-spacing: 0.02em;
   }
 
   .text-hero-sub-responsive {
@@ -237,7 +237,7 @@
     font-size: var(--section-heading-mobile);
     font-weight: 700;
     line-height: 1.2;
-    letter-spacing: -0.015em;
+    letter-spacing: 0.02em;
   }
 
   /* Tablet breakpoint (426px+) */

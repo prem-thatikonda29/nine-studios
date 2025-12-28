@@ -69,7 +69,7 @@ export default function Hero() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.2 }}
-              className="text-hero-sub-responsive text-muted-foreground max-w-2xl drop-shadow-md"
+              className="text-hero-sub-responsive text-muted-foreground max-w-2xl md:max-w-md lg:max-w-xl drop-shadow-md"
               style={{ textShadow: '0 2px 8px rgba(0, 0, 0, 0.4)' }}
             >
               {HERO_CONTENT.subheading}
